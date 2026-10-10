@@ -1,0 +1,9 @@
+[package]
+name = "leetspeak-core"
+version = "0.1.0"
+edition = "2021"
+
+# Deliberately dependency-free. Keeping the transformation in its own crate
+# means it compiles and tests without pyo3 or Polars in the picture, which is
+# both much faster and free of the CPython linking that a plugin cdylib needs.
+[dependencies]

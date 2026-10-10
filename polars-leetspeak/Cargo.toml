@@ -1,0 +1,24 @@
+[workspace]
+members = ["core"]
+
+[package]
+name = "leetspeak"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "leetspeak"
+# `cdylib` only: the shared object is dlopened by the Polars engine at query
+# time, it is never imported as a Python module and never linked as a Rust lib.
+crate-type = ["cdylib"]
+
+[dependencies]
+leetspeak-core = { path = "core" }
+polars = { version = "0.55.2" }
+pyo3 = { version = "0.29", features = ["extension-module", "abi3-py310"] }
+pyo3-polars = { version = "0.28.0", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
