@@ -1,0 +1,22 @@
+[package]
+name = "polars_leetspeak"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Polars expression plugin converting string columns to and from leetspeak"
+repository = "https://github.com/KonstantinosTsoumas/polars-leetspeak"
+
+# Must match the Python package directory name so the compiled object lands
+# next to __init__.py and `register_plugin_function` can resolve it.
+[lib]
+name = "polars_leetspeak"
+crate-type = ["cdylib"]
+
+[dependencies]
+polars = { version = "0.55", default-features = false, features = ["strings"] }
+pyo3 = { version = "0.29", features = ["extension-module", "abi3-py310"] }
+pyo3-polars = { version = "0.28", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+
+[profile.release]
+lto = "thin"

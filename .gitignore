@@ -1,0 +1,9 @@
+target/
+.venv/
+__pycache__/
+*.so
+*.pyd
+*.dylib
+dist/
+.pytest_cache/
+.ipynb_checkpoints/

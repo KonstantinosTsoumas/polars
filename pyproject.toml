@@ -1,0 +1,20 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "polars-leetspeak"
+version = "0.1.0"
+description = "Convert Polars string columns to and from leetspeak"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+# A plugin is ABI-coupled to the polars it was compiled against (polars-rs 0.55.x).
+# Verified against polars 1.44.2; do not widen without retesting.
+dependencies = ["polars>=1.44,<2.0"]
+classifiers = [
+  "Programming Language :: Rust",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+
+[project.urls]
+Repository = "https://github.com/KonstantinosTsoumas/polars-leetspeak"
